@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
@@ -11,10 +12,14 @@
     "debug": "~2.6.3",
     "express": "~4.15.2",
     "morgan": "~1.8.1",
+    "pg-promise": "^5.6.7",
     "pug": "~2.0.0-beta11",
     "serve-favicon": "~2.4.2"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-change": "^2.1.2",
+    "mocha": "^3.3.0",
     "nodemon": "^1.11.0"
   }
 }
