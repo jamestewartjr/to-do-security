@@ -1,5 +1,5 @@
 var expect = require('chai').expect
-var test = require('../models/test.js')
+var db = require('../models/database.js')
 
 describe('Test', function () {
   context('test()', function () {
