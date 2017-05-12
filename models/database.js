@@ -22,8 +22,14 @@ function getAllTask () {
     })
 }
 
-function editTaskById () {
-  return db.any
+function editTaskById (id, title) {
+  return db.any()
+    .then(function (data) {
+      return 'Task deleted.'
+    })
+    .catch(function (error) {
+      return error
+    })
 }
 
 function deleteTaskById (id) {

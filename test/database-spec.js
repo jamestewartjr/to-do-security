@@ -32,14 +32,19 @@ describe('Database', function () {
   })
 
   context('editTaskById()', function () {
-    it('should edit a task in the database', function () {
-      return expect(dbs.editTaskById('1')).to.equal('Task created.')
+    it('should edit a task in the database', function (done) {
+      dbs.editTaskById(1, 'Be a boss!')
+        .then(function (data) {
+          console.log('data:: ', data)
+          expect(data).to.equal('Task ' + data.id + ' has been edited to ' + data.title)
+          done()
+        })
     })
   })
 
   context('deleteTaskById()', function () {
     it('should delete a task from the database by id', function (done) {
-      dbs.deleteTaskById(1)
+      dbs.deleteTaskById(3)
         .then(function (data) {
           expect(data).to.equal('Task deleted.')
           done()
