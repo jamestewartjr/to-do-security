@@ -5,31 +5,35 @@ function createTask (title) {
   return db.one('INSERT INTO tasks(title) VALUES ($1) RETURNING *',
     title)
   .then(function (data) {
-    console.log(data)
     return ('Task created.')
   })
   .catch(function (error) {
-    console.log(error)
     return error
   })
 }
 
 function getAllTask () {
   return db.many('SELECT * FROM tasks')
-  .then(function (data) {
-    return data
-  })
-  .catch(function (error) {
-    return error
-  })
+    .then(function (data) {
+      return data
+    })
+    .catch(function (error) {
+      return error
+    })
 }
 
 function editTaskById () {
-  return 3
+  return db.any
 }
 
-function deleteTaskById () {
-  return 4
+function deleteTaskById (id) {
+  return db.none('DELETE FROM tasks WHERE id = $1', [id])
+    .then(function (data) {
+      return 'Task deleted.'
+    })
+    .catch(function (error) {
+      return error
+    })
 }
 
 module.exports = {

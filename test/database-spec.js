@@ -6,14 +6,14 @@ var db = require('../models/database.js')
 chai.use(chaiChange)
 
 describe('Database', function () {
-  var dbb
+  var dbs
   beforeEach('invokes a new database before each test', function () {
-    dbb = db
+    dbs = db
   })
 
   context('createTask()', function () {
     it('should insert a new task into the database', function (done) {
-      dbb.createTask('And another 1')
+      dbs.createTask('And another 1')
         .then(function (data) {
           expect(data).to.equal('Task created.')
           done()
@@ -23,9 +23,8 @@ describe('Database', function () {
 
   context('getAllTask()', function () {
     it('should return all tasks from the database', function (done) {
-      dbb.getAllTask()
+      dbs.getAllTask()
         .then(function (data) {
-          console.log(data)
           expect(data).to.equal(data)
           done()
         })
@@ -34,13 +33,17 @@ describe('Database', function () {
 
   context('editTaskById()', function () {
     it('should edit a task in the database', function () {
-      return expect(dbb.editTaskById('1')).to.equal('Task created.')
+      return expect(dbs.editTaskById('1')).to.equal('Task created.')
     })
   })
 
   context('deleteTaskById()', function () {
-    it('should delete a task from the database', function () {
-      return expect(dbb.deleteTaskById('And another 1')).to.equal('Task created.')
+    it('should delete a task from the database by id', function (done) {
+      dbs.deleteTaskById(1)
+        .then(function (data) {
+          expect(data).to.equal('Task deleted.')
+          done()
+        })
     })
   })
 })
