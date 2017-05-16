@@ -8,3 +8,15 @@ CREATE TABLE tasks (
 
 INSERT INTO tasks (title)
 VALUES ('Your first task!');
+
+INSERT INTO tasks (title)
+VALUES ('Your second task!');
+
+INSERT INTO tasks (title)
+VALUES ('Your third task!');
+
+INSERT INTO tasks (title)
+VALUES ('Last!');
+
+INSERT INTO tasks (title)
+VALUES ('No I am the last one...');

@@ -23,9 +23,9 @@ function getAllTask () {
 }
 
 function editTaskById (id, title) {
-  return db.any()
+  return db.any('UPDATE tasks SET title = $2 WHERE id = $1;', [id, title])
     .then(function (data) {
-      return 'Task deleted.'
+      return 'Task ' + data.id + ' has been edited to ' + data.title
     })
     .catch(function (error) {
       return error
