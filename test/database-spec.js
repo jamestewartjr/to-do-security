@@ -28,6 +28,9 @@ describe('Database', function () {
           expect(data).to.equal(data)
           done()
         })
+        .catch(function (error) {
+          return error
+        })
     })
   })
 
@@ -35,9 +38,12 @@ describe('Database', function () {
     it('should edit a task in the database', function (done) {
       dbs.editTaskById(1, 'Be a boss!')
         .then(function (data) {
-          console.log('data:: ', data)
-          expect(data).to.equal('Task ' + data.id + ' has been edited to ' + data.title)
+          expect(data).to.equal('Task ' + data[0].id + ' has been edited to ' + data[0].title)
           done()
+        })
+        .catch(function (error) {
+          done()
+          return error
         })
     })
   })
