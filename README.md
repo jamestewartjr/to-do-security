@@ -1,10 +1,13 @@
-# to-do-security
+  # to-do-security
 
 install: npm install  
+setup db: npm run db:init
 start: npm start
 open: http://localhost:3000
 
 testing: npm run test
+
+
 
 
 Resources:

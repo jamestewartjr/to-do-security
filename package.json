@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
+    "pretest": "npm run lint",
+    "migrate": "psql secure-to-do < schema.sql",
+    "db:init":"dropdb secure-to-do && createdb secure-to-do && npm run migrate",
     "test": "./node_modules/mocha/bin/mocha",
     "lint": "./node_modules/.bin/eslint .; exit 0"
   },
